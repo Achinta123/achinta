@@ -3,6 +3,8 @@ var DappToken = artifacts.require("./DappToken.sol");
 contract('DappToken', function(accounts) {
   var tokenInstance;
 
+
+
   it('initializes the contract with the correct values', function() {
     return DappToken.deployed().then(function(instance) {
       tokenInstance = instance;
@@ -18,6 +20,8 @@ contract('DappToken', function(accounts) {
     });
   })
 
+
+
   it('allocates the initial supply upon deployment', function() {
     return DappToken.deployed().then(function(instance) {
       tokenInstance = instance;
@@ -29,6 +33,8 @@ contract('DappToken', function(accounts) {
       assert.equal(adminBalance.toNumber(), 1000000, 'it allocates the initial supply to the admin account');
     });
   });
+
+
 
   it('transfers token ownership', function() {
     return DappToken.deployed().then(function(instance) {
@@ -56,6 +62,8 @@ contract('DappToken', function(accounts) {
     });
   });
 
+
+
   it('approves tokens for delegated transfer', function() {
     return DappToken.deployed().then(function(instance) {
       tokenInstance = instance;
@@ -74,6 +82,8 @@ contract('DappToken', function(accounts) {
       assert.equal(allowance.toNumber(), 100, 'stores the allowance for delegated trasnfer');
     });
   });
+
+
 
   it('handles delegated token transfers', function() {
     return DappToken.deployed().then(function(instance) {
@@ -116,4 +126,9 @@ contract('DappToken', function(accounts) {
       assert.equal(allowance.toNumber(), 0, 'deducts the amount from the allowance');
     });
   });
+
+
+
+
+  
 });
